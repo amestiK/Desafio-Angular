@@ -1,0 +1,59 @@
+<div #bannerEle id="banner" class="banner">
+  Solo
+  quedan
+  <b>{{days}}</b> días.
+  <br />
+  Aun necesitamos <b>${{donationGoal-donationCollected}}</b> para financiar este proyecto. ¡Todo está en tus manos!.
+</div>
+
+
+<div class="container indicators">
+  <div>${{donationCollected >= 250 ? 250 : donationCollected}}</div>
+  <div class="container">
+    <mat-progress-bar mode="determinate" min="0" aria-valuemin="0" aria-valuemax="250"
+      value="{{donationCollected*100/donationGoal}}"></mat-progress-bar>
+  </div>
+  <div>$250</div>
+</div>
+
+<div class="container">
+  <p class="msg-don">Unete a los <b>{{countDonators}}</b> donarodores que han aportado a este proyecto. Cada dolar
+    ayuda!</p>
+</div>
+
+
+<div class="container">
+  <form [formGroup]="donForm" (ngSubmit)="addDonation()">
+    <input id="monto" class="input-donar" type="number" min="0" placeholder="Ingrese monto"
+      formControlName="valueDonEntered" required>
+    <button class="btn-donar" [disabled]="!donForm.valid">Donar</button>
+  </form>
+</div>
+<!-- <div *ngIf="valueDonEntered.invalid && (valueDonEntered.dirty || valueDonEntered.touched)" -->
+<div *ngIf="valueDonEntered.invalid && valueDonEntered.dirty" class="alert alert-danger">
+  <div *ngIf="this.donationExceeded">
+    El monto es mayor a lo necesario para llegar a la meta.
+  </div>
+  <div *ngIf="valueDonEntered.errors?.['required']">
+    El monto no puede estar vacío.
+  </div>
+  <div *ngIf="valueDonEntered.errors?.['max']">
+    No puede donar montos mayores a $250.
+  </div>
+  <div *ngIf="valueDonEntered.errors?.['min']">
+    El monto minimo para donar es de $1.
+  </div>
+
+</div>
+
+
+<!-- modal-popup -->
+<ng-container *ngIf="statePopUp">
+  <div class="popup-background">
+    <div class="modal-popup">
+      <button class="btn-popup" (click)="hideModal()">x</button>
+      <h1>Wow! Hemos llegado a la meta!</h1>
+      <img src="{{gif}}" width="50%" height="60%" style="margin: auto;" alt="congratz">
+    </div>
+  </div>
+</ng-container>

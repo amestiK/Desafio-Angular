@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap");
+
+html,
+body {
+  height: 100%;
+  font-family: "Nunito", sans-serif;
+}
+
+//Inicio Media
+@media screen and (max-width: 800px) {
+  .banner {
+    padding: 8px !important;
+    font-size: 12px !important;
+    margin: 2% auto !important;
+  }
+
+  .container {
+    flex-direction: column;
+    .box {
+      width: 100% !important;
+    }
+    .input-donar {
+      padding: 5px 10px !important;
+    }
+    .btn-donar-blue {
+      padding: 8px 25px !important;
+    }
+  }
+
+  .container.indicators {
+    flex-direction: row;
+    width: 80% !important;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+
+  img {
+    width: 45%;
+  }
+
+  .modal-popup {
+    width: 90% !important;
+    height: 55% !important;
+    h1 {
+      font-size: 20px !important;
+    }
+    img {
+      width: 95% !important;
+    }
+  }
+
+  .msg-don {
+    font-size: 18px !important;
+  }
+}
+//Fin Media
+
+a {
+  color: #f1f2f3;
+}
+
+a:hover {
+  color: grey;
+}
+
+.container-btw {
+  display: flex;
+  justify-content: space-between;
+  background-color: #178bcd;
+  color: #f1f2f3;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  align-items: center;
+}
+
+.blue {
+  color: #178bcd;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+footer {
+  margin: 50px auto;
+  text-align: center;
+}
